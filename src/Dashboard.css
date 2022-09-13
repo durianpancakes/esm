@@ -1,0 +1,21 @@
+.employeeEdit{
+    padding: 5px 10px;
+    background-color: #3bb077;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.employeeDelete{
+    padding: 5px 10px;
+    background-color: #b03b3b;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.employeeList{
+    display: flex;
+    height: 93vh;
+    padding: 16px;
+}
