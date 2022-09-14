@@ -231,7 +231,7 @@ function Dashboard() {
         {field: "id", headerName: "ID", width: 90},
         {field: "login", headerName: "Login", width: 200},
         {field: "name", headerName: "Name", width: 200},
-        {field: "salary", headerName: "Salary", width: 120},
+        {field: "salary", headerName: "Salary", width: 120, type: "number"},
         {field: "action", headerName: "Action", width: 160,
             renderCell: (params) => {
                 return (
