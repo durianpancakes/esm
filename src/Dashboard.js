@@ -1,9 +1,37 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Modal, Button, Alert} from "react-bootstrap";
 import { DataGrid } from '@mui/x-data-grid';
 import '../src/Dashboard.css'
 import {DialogContentText, Fab} from "@mui/material";
 import {Form} from "react-bootstrap";
+
+function getLang() {
+    if (navigator.languages !== undefined)
+        return navigator.languages[0];
+    return navigator.language;
+}
+
+function AlertUnsupportedLanguage() {
+    const language = getLang();
+    const [show, setShow] = useState(() => (language !== "en-US"));
+
+    return (
+        <>
+            <Alert show={show} variant="warning">
+                <Alert.Heading>Unsupported Language</Alert.Heading>
+                <p>
+                    Your current language {language} is unsupported at the moment. More languages will be coming!
+                </p>
+                <hr />
+                <div className="d-flex justify-content-end">
+                    <Button onClick={() => setShow(false)} variant="outline-success">
+                        Okay!
+                    </Button>
+                </div>
+            </Alert>
+        </>
+    );
+}
 
 function Dashboard() {
     const [data, setData] = useState([]);
@@ -152,6 +180,7 @@ function Dashboard() {
                 .then(response => (response['success'] === true) ? handleSuccess() : handleFailure(response['error'])));
         }
 
+
         return (
             <Modal show={showAdd} onHide={handleCloseAdd} >
                 <Modal.Header closeButton>
@@ -253,6 +282,7 @@ function Dashboard() {
 
     return (
         <div>
+            <AlertUnsupportedLanguage></AlertUnsupportedLanguage>
             <div style={{
                 paddingLeft: '16px',
                 paddingTop: '16px',
