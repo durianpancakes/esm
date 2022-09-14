@@ -23,3 +23,9 @@ Instructions to install React can be found [here](https://www.geeksforgeeks.org/
 1. Ensure that the [server](https://github.com/durianpancakes/esm-server) is set up and running accordingly
 2. Run `npm start` from the root of the project. The web application should appear in your default web browser. If not, 
 access the page through [http://localhost:3000/](http://localhost:3000/)
+
+# Assumptions
+The following assumptions are made:
+* While the endpoint to obtain the employee list has many request parameters for sorting and filtering, I am allowed to 
+get the whole list of employees from the same endpoint using arbitrarily large numbers, then, performing sorting and 
+filtering with the `DataGrid` class from MaterialUI.
